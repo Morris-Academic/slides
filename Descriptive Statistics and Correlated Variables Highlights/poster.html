@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Noto Serif' rel='stylesheet'>
+
+
+
+<title>North Valley Real Estate Data: Descriptive Statistics and Correlated Variables Highlights</title>
+
+
+
+
+
+
+<style>
+@page {
+size: 60in 74in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 54px;
+width: 60in;
+height: 74in;
+padding: 0;
+text-align: justify;
+font-family: Noto Sans;
+}
+.poster_wrap {
+width: 60in;
+height: 74in;
+padding: 0cm;
+}
+.title_container {
+width: 60in;
+height: calc(74in * 0.15);
+overflow: hidden;
+background-color: #008080;
+border: 1.5cm solid #0b4545;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #008080;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #008080;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #FFFFFF;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Noto Serif;
+}
+/* unvisited link */
+a:link {
+color: #cc0000;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #cc0000;
+}
+
+/* mouse over link */
+a:hover {
+color: #cc0000;
+}
+
+/* selected link */
+a:active {
+color: #cc0000;
+}
+.poster_body {
+-webkit-column-count: 4; /* Chrome, Safari, Opera */
+-moz-column-count: 4; /* Firefox */
+column-count: 4;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: #008080;
+-moz-column-rule-color: #008080;
+column-rule-color: #008080;
+column-gap: 1.5cm;
+padding-left: calc(1.5cm / 2);
+padding-right: calc(1.5cm / 2);
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 128pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: calc(60in + 1.5cm + 1.5cm);
+height: calc(74in * 0.83);
+padding-top: calc(74in * 0.005);
+padding-bottom: calc(74in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #0b4545;
+font-size: 80pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #FFFFFF;
+font-size: ;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 2cm;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #FFFFFF;
+font-size: 65pt;
+border: 8mm solid #0b4545;
+background-color: #0b4545;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #0b4545;
+font-size: 58pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+/* align-items: center; */
+margin: auto;
+padding-left: 2cm;
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+.caption {
+font-size: 25pt;
+}
+.table caption {
+font-size: 25pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #0b454524;
+color: #008080;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+<img src= 'National_Chengchi_University_logo.svg.png' style="width: 80%">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title">North Valley Real Estate Data: Descriptive Statistics and Correlated Variables Highlights</h1>
+<h3 id="author">Morris Sheng-hui Yang<sup>1</sup></h3><br>
+<h5 id="affiliation"><sup>1</sup> (楊聲輝), 110464035, College of Communication, National Chengchi University</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+<img src=betterhexlogo.png style="width: 80%">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<div id="discriptive-statistics" class="section level1">
+<h1>1. Discriptive Statistics</h1>
+<p>The North Valley Real Estate Data comprises 105 records. The price of these records range from approximately 160,000 to 920,000 US dollars. The average selling price is close to 360,000 US dollars. About 65% of the houses come with a pool (n = 67), and about 75% come with a garage (n = 78).</p>
+<p>The summary statistics of the other secondary variables can be found in Table <a href="#tab:summary">1</a> below.</p>
+<table>
+<caption>
+<span id="tab:summary">Table 1: </span>Summary Statistics
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Price
+</td>
+<td style="text-align:left;">
+105
+</td>
+<td style="text-align:left;">
+357026.467
+</td>
+<td style="text-align:left;">
+160700.134
+</td>
+<td style="text-align:left;">
+167962
+</td>
+<td style="text-align:left;">
+240115
+</td>
+<td style="text-align:left;">
+393584
+</td>
+<td style="text-align:left;">
+919480
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Size
+</td>
+<td style="text-align:left;">
+105
+</td>
+<td style="text-align:left;">
+3440.286
+</td>
+<td style="text-align:left;">
+1411.113
+</td>
+<td style="text-align:left;">
+1550
+</td>
+<td style="text-align:left;">
+2300
+</td>
+<td style="text-align:left;">
+4220
+</td>
+<td style="text-align:left;">
+7670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pool
+</td>
+<td style="text-align:left;">
+105
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… 0
+</td>
+<td style="text-align:left;">
+38
+</td>
+<td style="text-align:left;">
+36.2%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… 1
+</td>
+<td style="text-align:left;">
+67
+</td>
+<td style="text-align:left;">
+63.8%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Garage
+</td>
+<td style="text-align:left;">
+105
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… 0
+</td>
+<td style="text-align:left;">
+27
+</td>
+<td style="text-align:left;">
+25.7%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+… 1
+</td>
+<td style="text-align:left;">
+78
+</td>
+<td style="text-align:left;">
+74.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>Observing Figure <a href="#fig:Bedrooms">1</a>, estimates of Bedrooms in each household range from 2 to 8, 96% of them range from 2 to 5, and 50% of the sample have 2 bedrooms in their house.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Bedrooms"></span>
+<img src="poster_files/figure-html/Bedrooms-1.png" alt="Bedrooms" width="80%" />
+<p class="caption">
+Figure 1: Bedrooms
+</p>
+</div>
+<p>As for the Baths, 1.5 baths in each household can be most commonly seen in our sample (41%). More than 93% of the data range from 1.5 to 3.5 (Figure <a href="#fig:Baths">2</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Baths"></span>
+<img src="poster_files/figure-html/Baths-1.png" alt="Baths" width="80%" />
+<p class="caption">
+Figure 2: Baths
+</p>
+</div>
+</div>
+<div id="price-intervals" class="section level1">
+<h1>2. Price Intervals</h1>
+<p>Price is the primary variable, accroding to the bar chart in Figure <a href="#fig:price">3</a>, we can easily find that the vast majority of houses (67%) are traded between $200,000 - 400,000.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:price"></span>
+<img src="poster_files/figure-html/price-1.png" alt="Price intervals" width="80%" />
+<p class="caption">
+Figure 3: Price intervals
+</p>
+</div>
+</div>
+<div id="correlation" class="section level1">
+<h1>3. Correlation</h1>
+<p>Next, this paper wants to explore if there is a correlation between the size of the house and the price, so it first uses a scatter plot to see where the sample data falls.</p>
+<p>Then, a loess model (Local Polynomial Regression Fitting) is applied (Figure <a href="#fig:scatter">4</a>). As Yifai Xie said, taking a specific percentage of data allows us to observe patterns and trends in the data than the usual regression analysis which tends to model the whole data. Real-life patterns are not always (or rarely) a straight line as we are told in textbooks (<span class="citation">(Xie 2008)</span>).</p>
+<p>Because the number of observations is less than 1000, the formula used in smoothing function is: <span class="math inline">\(y ~ x\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatter"></span>
+<img src="poster_files/figure-html/scatter-1.png" alt="Scatter plot" width="80%" />
+<p class="caption">
+Figure 4: Scatter plot
+</p>
+</div>
+<p>We determined that house size is highly correlated with price, and then called the plotpairs function in the beginr() package, in order to obtain a regression line and a correlation coefficient of 0.95 (<span class="math inline">\(p&lt;.01\)</span>) based on the lm model (Figure <a href="#fig:corr">5</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:corr"></span>
+<img src="poster_files/figure-html/corr-1.png" alt="Price and Size Correlation" width="100%" />
+<p class="caption">
+Figure 5: Price and Size Correlation
+</p>
+</div>
+</div>
+<div id="research-questions-and-results" class="section level1">
+<h1>5. Research Questions and Results</h1>
+<div id="rq1" class="section level2">
+<h2>RQ1</h2>
+<p>For RQ1, this paper would like to focus on the Pool and Garage variables: how do these two variables differ in distribution according to the value of the house (price and size)?</p>
+<p>Figure <a href="#fig:pg">6</a> shows that houses without pools are more evenly distributed in the scatterplot than houses without garages. In other words, there are still some mid- to high-priced houses without pools, but only low-priced houses don’t have garages, which are a relatively basic amenity in our sample.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pg"></span>
+<img src="poster_files/figure-html/pg-1.png" alt="Pool &amp; Garage" width="100%" />
+<p class="caption">
+Figure 6: Pool &amp; Garage
+</p>
+</div>
+</div>
+<div id="rq2" class="section level2">
+<h2>RQ2</h2>
+<p>For RQ2, this paper would like to further explore how the characteristics of houses sold by different agents differ?</p>
+<p>Result in Figure <a href="#fig:agent">7</a> shows that Marty is better at selling lower-priced, smaller homes than the other four agents.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:agent"></span>
+<img src="poster_files/figure-html/agent-1.png" alt="Agent based analysis" width="100%" />
+<p class="caption">
+Figure 7: Agent based analysis
+</p>
+</div>
+</div>
+<div id="rq3" class="section level2">
+<h2>RQ3</h2>
+<p>For RQ3, this paper would like to explore the correlation between different variables.</p>
+<p>Calling the ggstatsplot package (<span class="citation">(Patil 2021)</span>), the result shows that the four variables “Prize, Size, Bedrooms &amp; Baths”, have a high positive correlation with each other (<span class="math inline">\(p&lt;.05\)</span>). Among all other variables, only the FICO index and the year of the house have a moderate correlation of 0.51 (Figure <a href="#fig:corrall">8</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:corrall"></span>
+<img src="poster_files/figure-html/corrall-1.png" alt="Correlations of all variables" width="100%" />
+<p class="caption">
+Figure 8: Correlations of all variables
+</p>
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>6. Conclusion</h1>
+<p>This paper concludes that:</p>
+<ol style="list-style-type: decimal">
+<li><p>Although Pool and Garage are two binary variables, by comparing the drop points in scatter plots, we can still derive useful information that Garage is more commonplace than Pool across all facilities in the sample.</p></li>
+<li><p>The price range of housing transactions is bound to be different for different agents. By including the agents in the comparative analysis, we can find out their advantages in their respective house price ranges and further develop their business strategies in the future.</p></li>
+<li><p>The variables “Years, Days and FICO index” have almost no correlation, so the primary and secondary variables specified by the teacher are very reasonable.</p></li>
+</ol>
+<p>This poster is made by multiple packages including: <span class="citation">(Xie 2022)</span>, <span class="citation">(Xie et al. 2022)</span>, <span class="citation">(Thorne 2019)</span>, <span class="citation">(Allaire et al. 2022)</span>. The original code can be accessed in github when asked for.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>7. References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-rmarkdown" class="csl-entry">
+Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2022. <em>Rmarkdown: Dynamic Documents for r</em>.
+</div>
+<div id="ref-Patil" class="csl-entry">
+Patil, I. 2021. <em>Visualizations with Statistical Details: The ’Ggstatsplot’ Approach</em>. <a href="https://doi:10.21105/joss.03167">doi:10.21105/joss.03167</a>.
+</div>
+<div id="ref-R-posterdown" class="csl-entry">
+Thorne, Brent. 2019. <em>Posterdown: Generate PDF Conference Posters Using r Markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>.
+</div>
+<div id="ref-lowess" class="csl-entry">
+Xie, Yihui. 2008. <em>Lowess-to-Explore-Bivariate-Correlation-by-Yihui</em>. <a href="https://cosx.org/2008/11/lowess-to-explore-bivariate-correlation-by-yihui/">https://cosx.org/2008/11/lowess-to-explore-bivariate-correlation-by-yihui/</a>.
+</div>
+<div id="ref-R-knitr" class="csl-entry">
+———. 2022. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-R-pagedown" class="csl-entry">
+Xie, Yihui, Romain Lesur, Brent Thorne, and Xianying Tan. 2022. <em>Pagedown: Paginate the HTML Output of r Markdown with CSS for Print</em>. <a href="https://github.com/rstudio/pagedown">https://github.com/rstudio/pagedown</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
