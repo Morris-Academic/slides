@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Noto Serif' rel='stylesheet'>
+
+
+
+<title>How Conspiracy Theories and Misinformation Overlapped in the Debate of Covid-19 Alternative Drug: A Case Study of “Ivermectin” on Facebook</title>
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<style>
+@page {
+size: 36in 50in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 30pt;
+width: 36in;
+height: 50in;
+padding: 0;
+text-align: justify;
+font-family: Noto Sans;
+}
+.poster_wrap {
+width: 36in;
+height: 50in;
+padding: 0cm;
+}
+.title_container {
+width: 36in;
+height: calc(50in * 0.15);
+overflow: hidden;
+background-color: #008080;
+border: 2cm solid #0b4545;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #008080;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #008080;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #FFFFFF;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Noto Serif;
+}
+/* unvisited link */
+a:link {
+color: #cc0000;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #cc0000;
+}
+
+/* mouse over link */
+a:hover {
+color: #cc0000;
+}
+
+/* selected link */
+a:active {
+color: #cc0000;
+}
+.poster_body {
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: #008080;
+-moz-column-rule-color: #008080;
+column-rule-color: #008080;
+column-gap: 2cm;
+padding-left: calc(2cm / 2);
+padding-right: calc(2cm / 2);
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 75pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: calc(36in + 2cm + 2cm);
+height: calc(50in * 0.83);
+padding-top: calc(50in * 0.005);
+padding-bottom: calc(50in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #0b4545;
+font-size: 55pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #FFFFFF;
+font-size: ;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 2cm;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #FFFFFF;
+font-size: 35pt;
+border: 5mm solid #0b4545;
+background-color: #0b4545;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #0b4545;
+font-size: 35pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+/* align-items: center; */
+margin: auto;
+padding-left: 2cm;
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+.caption {
+font-size: 25pt;
+}
+.table caption {
+font-size: 25pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #0b454524;
+color: #008080;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+<img src= 'TokyoPoster_files/National_Chengchi_University_logo.svg.png' style="width: 80%">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title">How Conspiracy Theories and Misinformation Overlapped in the Debate of Covid-19 Alternative Drug: A Case Study of “Ivermectin” on Facebook</h1>
+<h3 id="author">Morris Sheng-hui Yang<sup>1</sup></h3><br>
+<h5 id="affiliation"><sup>1</sup> College of Communication, National Chengchi University, Taiwan.</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+<img src=TokyoPoster_files/Facebook.svg style="width: 80%">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<div id="intro" class="section level1">
+<h1>1. Intro</h1>
+<p>This case study focuses on the 2021 Ivermectin discussion on Facebook, chosen for its unique context of official narratives clashing with alternative medicines on social media. This study presents a valuable opportunity to compare the subtle differences between conspiracy theories and misinformation within discussions about Ivermectin on various aspects.</p>
+<p>RQ1: What are the top topics, the stances (support or opposition) in discussions about ivermectin? Any connections to conspiracy theories?</p>
+<p>RQ2: How do the topics related to ivermectin change over time for fact, misinformation, and CT groups, under different news events?</p>
+<p>RQ3: Do groups with different opinions use distinct vocabulary types?</p>
+</div>
+<div id="method" class="section level1">
+<h1>2. Method</h1>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FLOW"></span>
+<img src="TokyoPoster_files/flowEN.svg" alt="Methodology Design Flowchart" width="100%" />
+<p class="caption">
+Figure 1: Methodology Design Flowchart
+</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>To gather data, I utilized the CrowdTangle API (Meta) to scrape approximately 400,000 Facebook posts from January 1, 2021, to December 31, 2021, containing the word “Ivermectin.” After filtering out non-English posts, I retained a dataset of 40,621 posts in English.</p>
+</div>
+<div id="lda-tuning-k-search" class="section level2">
+<h2>LDA Tuning (K-search)</h2>
+<p>To fit the LDA model, we have to determine the number of topics (K) for the LDA model. I employed three common evaluation methods (Cao et al., 2009; Arun et al., 2010; Griffiths &amp; Steyvers, 2004). I selected K = 75 as the optimal number of topics (Figure <a href="#fig:KS">2</a>). After determining K, I used LDA Topic Modeling method to categorize 38,394 posts into 75 topics (5% remained unclassified).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:KS"></span>
+<img src="TokyoPoster_files/1.svg" alt="LDA Tuning test" width="100%" />
+<p class="caption">
+Figure 2: LDA Tuning test
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="classification-coding-process" class="section level2">
+<h2>Classification coding process</h2>
+<p>From the initial 80% of posts (N = 30,927), 46 topics were categorized into three groups, with two irrelevant topics excluded (N = 44). Five individuals coded the content, guided by 2021 Ivermectin-related events, and unanimously agreed on the final classifications.</p>
+<p>The LDA model generates a beta value for each token (word) and a gamma value for each document (post) in the corpus (dataset). Beta values assist in identifying the top ten terms that most accurately represent each topic, while gamma values indicate the representativeness of a post within a topic.</p>
+<p>This research involved a two-part coding process.</p>
+<ol style="list-style-type: decimal">
+<li><p>We categorized the top ten topics using gamma and beta values, assigning a concise title to each topic to summarize its content (Figure <a href="#fig:G">3</a>).</p></li>
+<li><p>We used the gamma values to categorize all relevent topics (n=44) into three categories: misinformation (misinfo), factual content (fact), and conspiracy theories (CT). This resulted in distinct colors across Figure <a href="#fig:G">3</a> to Figure <a href="#fig:ANOVA">5</a>.</p></li>
+</ol>
+</div>
+</div>
+<div id="results-and-discussion" class="section level1">
+<h1>3. Results and Discussion</h1>
+<div id="top-10-topics-trends-between-three-groups" class="section level2">
+<h2>Top 10 Topics’ Trends Between Three Groups</h2>
+<p>The big pharma conspiracy theory had a steady and significant impact in 2021 (Figure <a href="#fig:G">3</a>). Conspiracy theory discourse on the Joe Rogan podcast emerged after the pandemic worsened and continued to gain momentum after its release. The widespread dissemination of these theories can be attributed to their long histories, the fear climate during the pandemic, and the influence of celebrities and viral dissemination.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:G"></span>
+<img src="TokyoPoster_files/2.svg" alt="Top 10 Topics Trend" width="100%" />
+<p class="caption">
+Figure 3: Top 10 Topics Trend
+</p>
+</div>
+</div>
+<div id="topic-network-of-three-groups" class="section level2">
+<h2>Topic Network of Three Groups</h2>
+<p>Figure <a href="#fig:TN">4</a> shows a topic model network of all coded topics marked by different groups. The dashed dividing line help us see that most of the green dots (misinfo group) were closer to the CT group, indicating that the content of the misinfo group in the entire topic network was closer in distance with the CT group.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TN"></span>
+<img src="TokyoPoster_files/3.svg" alt="LDA Topic Network Chart" width="100%" />
+<p class="caption">
+Figure 4: LDA Topic Network Chart
+</p>
+</div>
+</div>
+<div id="linguistic-psychoanalysis-of-three-groups" class="section level2">
+<h2>Linguistic Psychoanalysis of Three Groups</h2>
+<p>In the LIWC dictionary analysis, drawing from previous conspiracy theory research (Fong et al., 2021), I primarily focused on the following seven sets of vocabulary in Figure <a href="#fig:ANOVA">5</a>. Combining LIWC dictionary analysis (word counts) with an ANOVA test, I found that the misinfo group and fact group displayed similar levels of anger, indicative of political polarization.</p>
+<p>Pronouns, Impersonal Pronouns, and We, these three sets of vocabulary had p-values greater than 0 between CT &amp; Misinfo Group (for the rest p-values=0). These suggest that the CT &amp; Misinfo Group are closer in the usage of these three sets of vocabulary.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ANOVA"></span>
+<img src="TokyoPoster_files/4.svg" alt="ANOVA test of Average Word Count by LIWC Dictionary" width="100%" />
+<p class="caption">
+Figure 5: ANOVA test of Average Word Count by LIWC Dictionary
+</p>
+</div>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>4. References</h1>
+<p><span class="references-small">Arun, R., Suresh, V., Veni Madhavan, C. E., &amp; Narasimha Murthy, M. N. (2010). On finding the natural number of topics with latent dirichlet allocation: Some observations. In Advances in Knowledge Discovery and Data Mining: 14th Pacific-Asia Conference, PAKDD 2010, Hyderabad, India, June 21-24, 2010. Proceedings. Part I 14 (pp. 391-402). Springer Berlin Heidelberg.</span></p>
+<p><span class="references-small">Cao, J., Xia, T., Li, J., Zhang, Y., &amp; Tang, S. (2009). A density-based method for adaptive LDA model selection. Neurocomputing, 72(7-9), 1775-1781.</span></p>
+<p><span class="references-small">Fong, A., Roozenbeek, J., Goldwert, D., Rathje, S., &amp; van der Linden, S. (2021). The language of conspiracy: A psychological analysis of speech used by conspiracy theorists and their followers on Twitter. Group Processes &amp; Intergroup Relations, 24(4), 606-623.</span></p>
+<p><span class="references-small">Griffiths, T., Steyvers, M., Blei, D., &amp; Tenenbaum, J. (2004). Integrating topics and syntax. Advances in neural information processing systems, 17.</span></p>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
