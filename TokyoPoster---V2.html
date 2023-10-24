@@ -31,7 +31,7 @@ Google fonts api stuff
 
 <style>
 @page {
-size: 36in 50in;
+size: 36in 48in;
 margin: 0;
 padding: 0;
 }
@@ -39,19 +39,19 @@ body {
 margin: 0;
 font-size: 30pt;
 width: 36in;
-height: 50in;
+height: 48in;
 padding: 0;
 text-align: justify;
 font-family: Noto Sans;
 }
 .poster_wrap {
 width: 36in;
-height: 50in;
+height: 48in;
 padding: 0cm;
 }
 .title_container {
 width: 36in;
-height: calc(50in * 0.15);
+height: calc(48in * 0.15);
 overflow: hidden;
 background-color: #008080;
 border: 2cm solid #0b4545;
@@ -140,9 +140,9 @@ font-weight: normal;
 }
 .poster_body_wrap{
 width: calc(36in + 2cm + 2cm);
-height: calc(50in * 0.83);
-padding-top: calc(50in * 0.005);
-padding-bottom: calc(50in * 0.01);
+height: calc(48in * 0.83);
+padding-top: calc(48in * 0.005);
+padding-bottom: calc(48in * 0.01);
 background-color: #ffffff;
 }
 .poster_title h3 {
@@ -335,7 +335,7 @@ Figure 2: LDA Tuning test
 <p>This research involved a two-part coding process.</p>
 <ol style="list-style-type: decimal">
 <li><p>We categorized the top ten topics using gamma and beta values, assigning a concise title to each topic to summarize its content (Figure <a href="#fig:G">3</a>).</p></li>
-<li><p>We used the gamma values to categorize all relevent topics (n=44) into three categories: misinformation (misinfo), factual content (fact), and conspiracy theories (CT). This resulted in distinct colors across Figure <a href="#fig:G">3</a> to Figure <a href="#fig:ANOVA">5</a>.</p></li>
+<li><p>We used the gamma values to categorize all relevent topics (n=44) into three categories: misinformation (misinfo), factual content (fact), and conspiracy theories (CT). This resulted in distinct colors across Figure <a href="#fig:G">3</a> to Figure <a href="#fig:ANOVA">4</a>.</p></li>
 </ol>
 </div>
 </div>
@@ -351,30 +351,28 @@ Figure 3: Top 10 Topics Trend
 </p>
 </div>
 </div>
-<div id="topic-network-of-three-groups" class="section level2">
-<h2>Topic Network of Three Groups</h2>
-<p>Figure <a href="#fig:TN">4</a> shows a topic model network of all coded topics marked by different groups. The dashed dividing line help us see that most of the green dots (misinfo group) were closer to the CT group, indicating that the content of the misinfo group in the entire topic network was closer in distance with the CT group.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TN"></span>
-<img src="TokyoPoster_files/3.svg" alt="LDA Topic Network Chart" width="100%" />
-<p class="caption">
-Figure 4: LDA Topic Network Chart
-</p>
-</div>
-</div>
 <div id="linguistic-psychoanalysis-of-three-groups" class="section level2">
 <h2>Linguistic Psychoanalysis of Three Groups</h2>
-<p>In the LIWC dictionary analysis, drawing from previous conspiracy theory research (Fong et al., 2021), I primarily focused on the following seven sets of vocabulary in Figure <a href="#fig:ANOVA">5</a>. Combining LIWC dictionary analysis (word counts) with an ANOVA test, I found that the misinfo group and fact group displayed similar levels of anger, indicative of political polarization.</p>
-<p>Pronouns, Impersonal Pronouns, and We, these three sets of vocabulary had p-values greater than 0 between CT &amp; Misinfo Group (for the rest p-values=0). These suggest that the CT &amp; Misinfo Group are closer in the usage of these three sets of vocabulary.</p>
+<p>In the LIWC dictionary analysis, drawing from previous conspiracy theory research (Fong et al., 2021), I primarily focused on the following seven sets of vocabulary in Figure <a href="#fig:ANOVA">4</a>. Combining LIWC dictionary analysis (word counts) with an ANOVA test, I found that the misinfo group and fact group displayed similar levels of anger, indicative of political polarization.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ANOVA"></span>
-<img src="TokyoPoster_files/4.svg" alt="ANOVA test of Average Word Count by LIWC Dictionary" width="100%" />
+<img src="TokyoPoster_files/4_3.svg" alt="ANOVA test of Average Word Count by LIWC Dictionary. " width="100%" />
 <p class="caption">
-Figure 5: ANOVA test of Average Word Count by LIWC Dictionary
+Figure 4: ANOVA test of Average Word Count by LIWC Dictionary.
+</p>
+</div>
+<p>I’d argue that having p-values above 0 is more important in this study. In 2019, statisticians advised against relying on significance tests. Instead, they recommended reporting p-values with reasonable precision (Amrhein, Greenland &amp; McShane, 2019), a Pairwise Comparisons Table is shown below, listed all p-values between groups.</p>
+<p>Pronouns, Impersonal Pronouns, and We, these three sets of vocabulary had p-values greater than 0 between CT &amp; Misinfo Group . These suggest that the CT &amp; Misinfo Group are closer in the usage of these three sets of vocabulary.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Table"></span>
+<img src="TokyoPoster_files/PValueTable.svg" alt="Pairwise Comparisons Table. P-values above 0 implies greater similarity in term or phrase usage between groups" width="100%" />
+<p class="caption">
+Figure 5: Pairwise Comparisons Table. P-values above 0 implies greater similarity in term or phrase usage between groups
 </p>
 </div>
 </div>
 </div>
 <div id="references" class="section level1">
 <h1>4. References</h1>
+<p><span class="references-small">Amrhein, V., Greenland, S., &amp; McShane, B. (2019). Scientists rise up against statistical significance. Nature, 567(7748), 305-307.</span></p>
 <p><span class="references-small">Arun, R., Suresh, V., Veni Madhavan, C. E., &amp; Narasimha Murthy, M. N. (2010). On finding the natural number of topics with latent dirichlet allocation: Some observations. In Advances in Knowledge Discovery and Data Mining: 14th Pacific-Asia Conference, PAKDD 2010, Hyderabad, India, June 21-24, 2010. Proceedings. Part I 14 (pp. 391-402). Springer Berlin Heidelberg.</span></p>
 <p><span class="references-small">Cao, J., Xia, T., Li, J., Zhang, Y., &amp; Tang, S. (2009). A density-based method for adaptive LDA model selection. Neurocomputing, 72(7-9), 1775-1781.</span></p>
 <p><span class="references-small">Fong, A., Roozenbeek, J., Goldwert, D., Rathje, S., &amp; van der Linden, S. (2021). The language of conspiracy: A psychological analysis of speech used by conspiracy theorists and their followers on Twitter. Group Processes &amp; Intergroup Relations, 24(4), 606-623.</span></p>
